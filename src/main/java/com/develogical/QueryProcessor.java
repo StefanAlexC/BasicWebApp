@@ -9,7 +9,11 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.toLowerCase().contains("milk")) {
             return "Please mister gib milk";
+        } else if (query.toLowerCase().contains(" what is your team name")) {
+            return "Milky Way";
         }
+
+
         return "";
     }
 }
