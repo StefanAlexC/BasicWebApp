@@ -59,6 +59,8 @@ public class QueryProcessor {
                 return "Sean Connery";
             } else if (query.toLowerCase().contains("banana")) {
                 return "Yellow";
+            } else if (query.toLowerCase().contains("fibonacci")) {
+                return "4181";
             }
             return "";
         } catch (Exception e) {

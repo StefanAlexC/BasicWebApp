@@ -35,4 +35,10 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("69e793c0: which of the following numbers is the largest: 579, 933, 84, 67"),
                 containsString("933"));
     }
+
+    @Test
+    public void isTheresa() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: Theresa May"),
+                containsString("2016"));
+    }
 }
