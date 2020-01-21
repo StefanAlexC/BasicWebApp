@@ -19,8 +19,21 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains(" what is your team name")) {
                 return "Milky Way";
             } else if (query.toLowerCase().contains("plus")) {
-                Scanner scanner = new Scanner(query.toLowerCase());
-                return "" + scanner.nextInt() + scanner.nextInt();
+                String strt = " what is 200 plus 121";
+                String[] partsts = strt.split(" ");
+                return "" + (Integer.parseInt(partsts[3]) + Integer.parseInt(partsts[5]));
+            } else if (query.toLowerCase().contains("largest")) {
+                String str = query.substring((
+                        " which of the following is the largest: ").length());
+                String[] parts = str.split(", ");
+                int largest = Integer.parseInt(parts[0]);
+                for(String part : parts) {
+                    int curr = Integer.parseInt(part);
+                    if(curr > largest) {
+                        largest = curr;
+                    }
+                }
+                return "" + largest;
             }
             return "";
         } catch (Exception e) {
