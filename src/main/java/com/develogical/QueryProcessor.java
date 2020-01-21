@@ -78,6 +78,12 @@ public class QueryProcessor {
                 String strt = query;
                 String[] partsts = strt.split(" ");
                 return "" + (Integer.parseInt(partsts[3]) * Integer.parseInt(partsts[5]));
+            } else if (query.toLowerCase().contains("to the power of ")) {
+                //what is 19 to the power of 18
+                String strt = query;
+                String[] partsts = strt.split(" ");
+                return "" + (int)Math.pow(Integer.parseInt(partsts[3]), Integer.parseInt
+                        (partsts[8]));
             } else if (query.toLowerCase().contains("eiffel tower")) {
                 return "Paris";
             } else if (query.toLowerCase().contains("minus")) {

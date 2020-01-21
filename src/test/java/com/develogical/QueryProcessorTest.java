@@ -61,7 +61,10 @@ public class QueryProcessorTest {
                 containsString("2, 3, 5, 11, 13"));
     }
 
-
-
+    @Test
+    public void isPower() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: what is 2 to the power of 3"),
+                containsString("8"));
+    }
 
 }
