@@ -40,6 +40,14 @@ public class QueryProcessor {
                 return "" + (Integer.parseInt(partsts[3]) * Integer.parseInt(partsts[5]));
             } else if (query.toLowerCase().contains("eiffel tower")) {
                 return "Paris";
+            } else if (query.toLowerCase().contains("minus")) {
+                String strt = query;
+                String[] partsts = strt.split(" ");
+                return "" + (Integer.parseInt(partsts[3]) / Integer.parseInt(partsts[5]));
+            } else if (query.toLowerCase().contains("divided by")) {
+                String strt = query;
+                String[] partsts = strt.split(" ");
+                return "" + (Integer.parseInt(partsts[3]) / Integer.parseInt(partsts[5]));
             }
             return "";
         } catch (Exception e) {
