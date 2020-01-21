@@ -8,7 +8,7 @@ public class QueryProcessor {
     public String process(String query) {
         try {
             String[] quer = query.split(":");
-            query = quer[1];
+            query = quer[1] + quer[2];
 
             if (query.toLowerCase().contains("shakespeare")) {
                 return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -24,7 +24,7 @@ public class QueryProcessor {
                 return "" + (Integer.parseInt(partsts[3]) + Integer.parseInt(partsts[5]));
             } else if (query.toLowerCase().contains("largest")) {
                 String str = query.substring((
-                        " which of the following numbers is the largest: ").length());
+                        " which of the following numbers is the largest ").length());
                 String[] parts = str.split(", ");
                 int largest = Integer.parseInt(parts[0]);
                 for(String part : parts) {
