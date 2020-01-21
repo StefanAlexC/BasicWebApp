@@ -48,6 +48,8 @@ public class QueryProcessor {
                 String strt = query;
                 String[] partsts = strt.split(" ");
                 return "" + (Integer.parseInt(partsts[3]) / Integer.parseInt(partsts[5]));
+            } else if (query.toLowerCase().contains("theresa may")) {
+                return "2016";
             }
             return "";
         } catch (Exception e) {
