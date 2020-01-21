@@ -54,5 +54,14 @@ public class QueryProcessorTest {
                 containsString("4181"));
     }
 
+    @Test
+    public void isPrimes() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: which of the following numbers are primes: " +
+                        "2, 3, 5, 11, 13, 25, 124"),
+                containsString("2, 3, 5, 11, 13"));
+    }
+
+
+
 
 }

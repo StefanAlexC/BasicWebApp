@@ -120,6 +120,8 @@ public class QueryProcessor {
                         ans += curr + ", ";
                     }
                 }
+                ans = ans.substring(0, ans.length() - 2);
+                return ans;
             }
             return "";
         } catch (Exception e) {
