@@ -8,7 +8,12 @@ public class QueryProcessor {
     public String process(String query) {
         try {
             String[] quer = query.split(":");
-            query = quer[1] + quer[2];
+            if (quer.length > 2)
+                query = quer[1] + quer[2];
+            else if (quer.length > 1)
+                query = quer[1];
+            else if (quer.length == 1)
+                query = quer[0];
 
             if (query.toLowerCase().contains("shakespeare")) {
                 return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -52,6 +57,8 @@ public class QueryProcessor {
                 return "2016";
             } else if (query.toLowerCase().contains("james bond")) {
                 return "Sean Connery";
+            } else if (query.toLowerCase().contains("banana")) {
+                return "Yellow";
             }
             return "";
         } catch (Exception e) {
