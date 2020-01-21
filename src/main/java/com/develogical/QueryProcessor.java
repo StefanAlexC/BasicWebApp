@@ -5,6 +5,21 @@ import java.util.Scanner;
 
 public class QueryProcessor {
 
+    public static boolean isPrime(int x) {
+        int i,m=0,flag=0;
+        m=x/2;
+        if( x==0|| x==1){
+            return false;
+        }else{
+            for(i=2;i<=m;i++){
+                if(x%i==0){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
     public String process(String query) {
         try {
             String[] quer = query.split(":");
@@ -61,6 +76,18 @@ public class QueryProcessor {
                 return "Yellow";
             } else if (query.toLowerCase().contains("fibonacci")) {
                 return "4181";
+            } else if (query.toLowerCase().contains("square and a cube")) {
+                String[] parts = query.substring(("which of the following numbers is both a " +
+                        "square " +
+                        "and a" +
+                        " " +
+                        "cube: ").length()).split(", ");
+                for(String part : parts) {
+                    int curr = Integer.parseInt(part);
+                    if((int) Math.sqrt(curr) * (int) Math.sqrt(curr) == curr && (int) Math.pow((int) Math.pow(curr, 1D/3) + 1, 3) == curr ) {
+                        return "" + curr;
+                    }
+                }
             }
             return "";
         } catch (Exception e) {

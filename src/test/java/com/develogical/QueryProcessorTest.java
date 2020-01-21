@@ -41,4 +41,11 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("69e793c0: Theresa May"),
                 containsString("2016"));
     }
+
+    @Test
+    public void isCubeSquare() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: which of the following numbers is both a square and a cube: 107, 841, 169, 117649"),
+                containsString("117649"));
+    }
+
 }
