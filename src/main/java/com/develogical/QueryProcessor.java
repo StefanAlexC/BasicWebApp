@@ -50,6 +50,8 @@ public class QueryProcessor {
                 return "" + (Integer.parseInt(partsts[3]) / Integer.parseInt(partsts[5]));
             } else if (query.toLowerCase().contains("theresa may")) {
                 return "2016";
+            } else if (query.toLowerCase().contains("james bond")) {
+                return "Sean Connery";
             }
             return "";
         } catch (Exception e) {
