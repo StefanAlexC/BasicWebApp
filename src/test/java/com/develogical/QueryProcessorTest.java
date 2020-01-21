@@ -48,4 +48,11 @@ public class QueryProcessorTest {
                 containsString("117649"));
     }
 
+    @Test
+    public void isFibonacci() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: what is the 19th number in the fibonacci seq"),
+                containsString("4181"));
+    }
+
+
 }

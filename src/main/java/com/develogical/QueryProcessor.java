@@ -20,6 +20,26 @@ public class QueryProcessor {
         }
     }
 
+    static int fib(int n)
+    {
+            /* Declare an array to store Fibonacci numbers. */
+            int f[] = new int[n+2]; // 1 extra to handle case, n = 0
+            int i;
+
+            /* 0th and 1st number of the series are 0 and 1*/
+            f[0] = 0;
+            f[1] = 1;
+
+            for (i = 2; i <= n; i++)
+            {
+           /* Add the previous 2 numbers in the series
+             and store it */
+                f[i] = f[i-1] + f[i-2];
+            }
+
+            return f[n];
+    }
+
     public String process(String query) {
         try {
             String[] quer = query.split(":");
@@ -63,7 +83,7 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("minus")) {
                 String strt = query;
                 String[] partsts = strt.split(" ");
-                return "" + (Integer.parseInt(partsts[3]) / Integer.parseInt(partsts[5]));
+                return "" + (Integer.parseInt(partsts[3]) - Integer.parseInt(partsts[5]));
             } else if (query.toLowerCase().contains("divided by")) {
                 String strt = query;
                 String[] partsts = strt.split(" ");
@@ -75,7 +95,9 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("banana")) {
                 return "Yellow";
             } else if (query.toLowerCase().contains("fibonacci")) {
-                return "4181";
+                String[] parts = query.split(" ");
+
+                return "" + fib(Integer.parseInt(parts[4].substring(0, parts[4].indexOf("th"))));
             } else if (query.toLowerCase().contains("square and a cube")) {
                 String[] parts = query.substring(("which of the following numbers is both a " +
                         "square " +
@@ -88,6 +110,16 @@ public class QueryProcessor {
                         return "" + curr;
                     }
                 }
+            } else if (query.toLowerCase().contains("are primes")) {
+                String[] parts = query.substring((" which of the following numbers are primes:")
+                        .length()).split(", ");
+                String ans = "";
+                for(String part : parts) {
+                    int curr = Integer.parseInt(part);
+                    if (isPrime(curr)) {
+                        ans += curr + ", ";
+                    }
+                }
             }
             return "";
         } catch (Exception e) {
@@ -95,3 +127,10 @@ public class QueryProcessor {
         }
     }
 }
+
+/*
+*  else if (query.toLowerCase().contains("power")) {
+                String strt = query;
+                String[] partsts = strt.split(" ");
+                return "" + (Integer.parseInt(partsts[3]) + Integer.parseInt(partsts[5]));
+            } */
