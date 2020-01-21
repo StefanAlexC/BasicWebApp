@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.Scanner;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -11,9 +13,10 @@ public class QueryProcessor {
             return "Please mister gib milk";
         } else if (query.toLowerCase().contains(" what is your team name")) {
             return "Milky Way";
+        } else if (query.toLowerCase().contains("plus")) {
+            Scanner scanner = new Scanner(query.toLowerCase());
+            return "" + scanner.nextInt() + scanner.nextInt();
         }
-
-
         return "";
     }
 }
