@@ -61,7 +61,14 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("plus")) {
                 String strt = query;
                 String[] partsts = strt.split(" ");
-                return "" + (Integer.parseInt(partsts[3]) + Integer.parseInt(partsts[5]));
+                int sum = 0;
+                try {
+                    for (int i = 3;; i += 2) {
+                        sum += Integer.parseInt(partsts[i]);
+                    }
+                } catch (Exception e) {
+                    return "" + sum;
+                }
             } else if (query.toLowerCase().contains("largest")) {
                 String str = query.substring((
                         " which of the following numbers is the largest ").length());

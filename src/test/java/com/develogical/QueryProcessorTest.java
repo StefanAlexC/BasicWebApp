@@ -67,4 +67,10 @@ public class QueryProcessorTest {
                 containsString("8"));
     }
 
+    @Test
+    public void isPlus2() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: what is 2 plus 3 plus 5"),
+                containsString("10"));
+    }
+
 }
