@@ -38,6 +38,8 @@ public class QueryProcessor {
                 String strt = query;
                 String[] partsts = strt.split(" ");
                 return "" + (Integer.parseInt(partsts[3]) * Integer.parseInt(partsts[5]));
+            } else if (query.toLowerCase().contains("eiffel tower")) {
+                return "Paris";
             }
             return "";
         } catch (Exception e) {
