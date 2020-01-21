@@ -29,4 +29,10 @@ public class QueryProcessorTest {
     public void isPlus() throws Exception {
         assertThat(queryProcessor.process("64cf6090: what is 8 plus 7"), containsString("15"));
     }
+
+    @Test
+    public void isLargest() throws Exception {
+        assertThat(queryProcessor.process("69e793c0: which of the following numbers is the largest: 579, 933, 84, 67"),
+                containsString("933"));
+    }
 }

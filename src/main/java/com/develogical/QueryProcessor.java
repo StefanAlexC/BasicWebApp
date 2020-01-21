@@ -19,12 +19,12 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains(" what is your team name")) {
                 return "Milky Way";
             } else if (query.toLowerCase().contains("plus")) {
-                String strt = " what is 200 plus 121";
+                String strt = query;
                 String[] partsts = strt.split(" ");
                 return "" + (Integer.parseInt(partsts[3]) + Integer.parseInt(partsts[5]));
             } else if (query.toLowerCase().contains("largest")) {
                 String str = query.substring((
-                        " which of the following is the largest: ").length());
+                        " which of the following numbers is the largest: ").length());
                 String[] parts = str.split(", ");
                 int largest = Integer.parseInt(parts[0]);
                 for(String part : parts) {
@@ -34,6 +34,10 @@ public class QueryProcessor {
                     }
                 }
                 return "" + largest;
+            } else if (query.toLowerCase().contains("multiplied")) {
+                String strt = query;
+                String[] partsts = strt.split(" ");
+                return "" + (Integer.parseInt(partsts[3]) * Integer.parseInt(partsts[5]));
             }
             return "";
         } catch (Exception e) {
